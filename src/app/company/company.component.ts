@@ -3,17 +3,9 @@ import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
+import {Company} from "../shared/company";
+import {CompanyService} from "../shared/company/company.service";
 
-export class Company {
-    constructor(
-    public name: string,
-    public email: string,
-    public startDate: Date,
-    public defaultCurrency: string,
-    public phoneNumber?: string,
-    public address?: string
-    ) {}
-}
 
 @Component({
   selector: 'app-company',
@@ -22,9 +14,11 @@ export class Company {
 })
 export class CompanyComponent implements OnInit {
 
+  constructor (private companyService: CompanyService) {}
   currenciesControl: FormControl = new FormControl();
 
   company : Company = {
+    id: 0,
     name: "",
     email: "",
     address: "",
@@ -84,8 +78,10 @@ export class CompanyComponent implements OnInit {
 
   onSubmit()
   {
-      //ToDo: call the api service
-      console.log(this.company);
+      this.companyService.createCompany(this.company).then(function (company: Company) {
+        console.log("Successfully created")
+        console.log(company);
+      });
   }
 
   filter(val: string): string[] {

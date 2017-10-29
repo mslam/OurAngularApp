@@ -5,6 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {CdkTableModule} from '@angular/cdk/table';
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -81,6 +82,7 @@ export class MaterialModule {}
 import { AppComponent } from './app.component';
 import { CompanyComponent } from './company/company.component';
 import { HomeComponent } from './home/home.component';
+import {CompanyService} from "./shared/company/company.service";
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -105,7 +107,7 @@ const routing = RouterModule.forRoot(routes, { enableTracing: true });
     ReactiveFormsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [CompanyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
