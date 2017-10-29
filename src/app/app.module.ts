@@ -75,7 +75,8 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-  ]
+  ],
+  declarations: [UserComponent]
 })
 export class MaterialModule {}
 
@@ -83,10 +84,13 @@ import { AppComponent } from './app.component';
 import { CompanyComponent } from './company/company.component';
 import { HomeComponent } from './home/home.component';
 import {CompanyService} from "./shared/company/company.service";
+import {ContextService} from "./shared/context/context.service";
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'companies', component: CompanyComponent}
+  { path: 'companies', component: CompanyComponent},
+  { path: 'companies/:id/users', component: UserComponent}
 ];
 
 const routing = RouterModule.forRoot(routes, { enableTracing: true });
@@ -107,7 +111,8 @@ const routing = RouterModule.forRoot(routes, { enableTracing: true });
     ReactiveFormsModule,
     MaterialModule
   ],
-  providers: [CompanyService],
+  providers: [CompanyService,
+              ContextService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

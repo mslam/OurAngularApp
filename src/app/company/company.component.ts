@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
+import {Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 import {Company} from "../shared/company";
 import {CompanyService} from "../shared/company/company.service";
+import {ContextService} from "../shared/context/context.service";
 
 
 @Component({
@@ -14,9 +16,11 @@ import {CompanyService} from "../shared/company/company.service";
 })
 export class CompanyComponent implements OnInit {
 
-  constructor (private companyService: CompanyService) {}
+  constructor (
+      private companyService: CompanyService,
+      private router: Router,
+      private contextService: ContextService) {}
   currenciesControl: FormControl = new FormControl();
-
   company : Company = {
     id: 0,
     name: "",
@@ -78,10 +82,16 @@ export class CompanyComponent implements OnInit {
 
   onSubmit()
   {
-      this.companyService.createCompany(this.company).then(function (company: Company) {
-        console.log("Successfully created")
-        console.log(company);
-      });
+
+    this.companyService.createCompany(this.company).then((company) => {
+      console.log("Successfully created");
+      console.log(company);
+
+      // set the current company in the context
+      this.contextService.currentCompany = company;
+
+      this.router.navigate(['/companies/' + company.id + '/users']);
+    });
   }
 
   filter(val: string): string[] {
