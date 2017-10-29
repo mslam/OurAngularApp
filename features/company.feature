@@ -6,4 +6,4 @@ Feature: Example feature
   Scenario: Reading documentation
     Given I am on the homepage
     When I click on "Add new company"
-    Then I should see "New Company component"
+    Then I should see "Create new company"
