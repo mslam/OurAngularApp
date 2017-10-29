@@ -22,9 +22,9 @@ export class CompanyComponent implements OnInit {
     name: "",
     email: "",
     address: "",
-    phoneNumber: "",
-    startDate: new Date(),
-    defaultCurrency: "USD"
+    phone_number: "",
+    start_date: new Date(),
+    default_currency: "USD"
   };
 
   countries = [

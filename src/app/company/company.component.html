@@ -20,13 +20,14 @@
   </mat-form-field>
 
   <mat-form-field class="formField">
-    <input matInput placeholder="Phone Number" [(ngModel)]="company.phoneNumber" name="phoneNumber">
+    <input matInput placeholder="Phone Number"
+           [(ngModel)]="company.phone_number" name="phone_number">
   </mat-form-field>
 
   <mat-form-field class="formField">
     <input matInput [matDatepicker]="picker" placeholder="Start Date"
            required
-           [(ngModel)]="company.startDate" name="startDate">
+           [(ngModel)]="company.start_date" name="start_date">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
@@ -35,7 +36,7 @@
       <input type="text" placeholder="Default Currency"
              required
              matInput [formControl]="currenciesControl" [matAutocomplete]="auto"
-             [(ngModel)]="company.defaultCurrency" name="defaultCurrency">
+             [(ngModel)]="company.default_currency" name="default_currency">
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let currency of filteredOptions | async" [value]="currency">
           {{ currency }}

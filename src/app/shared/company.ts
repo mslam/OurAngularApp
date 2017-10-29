@@ -3,9 +3,9 @@ export class Company {
         public id: number,
         public name: string,
         public email: string,
-        public startDate: Date,
-        public defaultCurrency: string,
-        public phoneNumber?: string,
+        public start_date: Date,
+        public default_currency: string,
+        public phone_number?: string,
         public address?: string
     ) {}
 }
