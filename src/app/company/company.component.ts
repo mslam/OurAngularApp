@@ -4,6 +4,17 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 
+export class Company {
+    constructor(
+    public name: string,
+    public email: string,
+    public startDate: Date,
+    public defaultCurrency: string,
+    public phoneNumber?: string,
+    public address?: string
+    ) {}
+}
+
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
@@ -12,6 +23,15 @@ import 'rxjs/add/operator/map';
 export class CompanyComponent implements OnInit {
 
   currenciesControl: FormControl = new FormControl();
+
+  company : Company = {
+    name: "",
+    email: "",
+    address: "",
+    phoneNumber: "",
+    startDate: new Date(),
+    defaultCurrency: "USD"
+  };
 
   countries = [
     "AFG","ALA","ALB","DZA","ASM","AND","AGO","AIA","ATA","ATG","ARG",
@@ -60,6 +80,12 @@ export class CompanyComponent implements OnInit {
     this.filteredOptions = this.currenciesControl.valueChanges
         .startWith(null)
         .map(val => val ? this.filter(val) : this.currencies.slice());
+  }
+
+  onSubmit()
+  {
+      //ToDo: call the api service
+      console.log(this.company);
   }
 
   filter(val: string): string[] {
