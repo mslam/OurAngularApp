@@ -3,6 +3,8 @@
     Journal Voucher App
   </h1>
 </div>
-
+<p *ngFor="let alert of alertService.alerts">
+  <ngb-alert [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+</p>
 <router-outlet>
 </router-outlet>

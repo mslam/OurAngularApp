@@ -5,7 +5,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {CdkTableModule} from '@angular/cdk/table';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AlertService} from './shared/alert/alert.service';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -109,10 +110,12 @@ const routing = RouterModule.forRoot(routes, { enableTracing: true });
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    NgbModule.forRoot()
   ],
   providers: [CompanyService,
-              ContextService],
+              ContextService,
+              AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
