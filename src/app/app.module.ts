@@ -77,7 +77,7 @@ import {
     MatToolbarModule,
     MatTooltipModule,
   ],
-  declarations: [UserComponent]
+  declarations: [UserComponent, LoginuserComponent]
 })
 export class MaterialModule {}
 
@@ -87,11 +87,13 @@ import { HomeComponent } from './home/home.component';
 import {CompanyService} from "./shared/company/company.service";
 import {ContextService} from "./shared/context/context.service";
 import { UserComponent } from './user/user.component';
+import { LoginuserComponent } from './loginuser/loginuser.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'companies', component: CompanyComponent},
-  { path: 'companies/:id/users', component: UserComponent}
+  { path: 'companies/:id/users', component: UserComponent},
+  { path: 'loginuser', component: LoginuserComponent}
 ];
 
 const routing = RouterModule.forRoot(routes, { enableTracing: true });
