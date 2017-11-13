@@ -77,7 +77,7 @@ import {
     MatToolbarModule,
     MatTooltipModule,
   ],
-  declarations: [UserComponent, LoginuserComponent]
+  declarations: [UserComponent, LoginuserComponent, SignupuserComponent]
 })
 export class MaterialModule {}
 
@@ -85,15 +85,19 @@ import { AppComponent } from './app.component';
 import { CompanyComponent } from './company/company.component';
 import { HomeComponent } from './home/home.component';
 import {CompanyService} from "./shared/company/company.service";
+import {SignupuserService} from "./shared/signupuser/signupuser.service";
 import {ContextService} from "./shared/context/context.service";
 import { UserComponent } from './user/user.component';
 import { LoginuserComponent } from './loginuser/loginuser.component';
+import { SignupuserComponent } from './signupuser/signupuser.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'companies', component: CompanyComponent},
   { path: 'companies/:id/users', component: UserComponent},
-  { path: 'loginuser', component: LoginuserComponent}
+  { path: 'loginuser', component: LoginuserComponent},
+  { path: 'signupuser', component: SignupuserComponent },
+  { path: 'signupuser/:signup_user_id/users', component: UserComponent},
 ];
 
 const routing = RouterModule.forRoot(routes, { enableTracing: true });
@@ -117,6 +121,7 @@ const routing = RouterModule.forRoot(routes, { enableTracing: true });
   ],
   providers: [CompanyService,
               ContextService,
+              SignupuserService,
               AlertService],
   bootstrap: [AppComponent]
 })
