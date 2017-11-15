@@ -1,3 +1,11 @@
-<p>
-  signupuser works!
-</p>
+<h1>
+  Create a new user
+</h1>
+
+<form>(ngSubmit)="onSubmit()" class="formContainer" #signupuserForm="ngForm">
+  <mat-form-field> class="formField">
+    <input matInput placeholder="signupuser_name"
+           required
+           [(ngModel)]="signupuser.signup_user_name" name="signupuser_name">
+  </mat-form-field>
+</form>

@@ -7,6 +7,10 @@ import {HttpModule} from '@angular/http';
 import {CdkTableModule} from '@angular/cdk/table';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AlertService} from './shared/alert/alert.service';
+import { MatFormFieldModule } from '@angular/material';
+//import { MatInputModule } from '@angular/material';
+
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -19,7 +23,6 @@ import {
   MatExpansionModule,
   MatGridListModule,
   MatIconModule,
-  MatInputModule,
   MatListModule,
   MatMenuModule,
   MatNativeDateModule,
@@ -39,7 +42,9 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatStepperModule,
-} from '@angular/material';
+  MatInputModule
+}
+from '@angular/material';
 
 
 @NgModule({
@@ -55,9 +60,9 @@ import {
     MatDatepickerModule,
     MatDialogModule,
     MatExpansionModule,
+    MatInputModule,
     MatGridListModule,
     MatIconModule,
-    MatInputModule,
     MatListModule,
     MatMenuModule,
     MatNativeDateModule,
@@ -75,7 +80,7 @@ import {
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule,
+    MatTooltipModule
   ],
   declarations: [UserComponent, LoginuserComponent, SignupuserComponent]
 })
@@ -125,4 +130,5 @@ const routing = RouterModule.forRoot(routes, { enableTracing: true });
               AlertService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
