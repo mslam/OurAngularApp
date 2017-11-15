@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
 import {Router} from '@angular/router';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 import {Signupuser} from "../shared/signupuser";
@@ -13,7 +15,7 @@ import {ContextService} from '../shared/context/context.service';
 })
 export class SignupuserComponent implements OnInit {
   constructor(
-    private signupuserService: SignupuserService,
+    private SignupuserService: SignupuserService,
     private router: Router,
     private contextService: ContextService
   ) { }
@@ -30,7 +32,7 @@ export class SignupuserComponent implements OnInit {
   onSubmit()
   {
 
-    this.signupuserService.createSignupuser(this.signupuser).then((signupuser) => {
+    this.SignupuserService.createSignupuser(this.signupuser).then((signupuser) => {
       console.log("Successfully created");
       console.log(signupuser);
 
