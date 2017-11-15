@@ -1,3 +1,16 @@
-<p>
-  signupuser works!
-</p>
+<h2>
+  Welcome to the wonderful world of Accounting. Please Sign up if you want to register for a new account
+</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <input matInput placeholder="Create New User Name"
+         required
+         name="signup_user_name"><br>
+  <input matInput placeholder="Provide your E-mail Address"
+         required
+         name="signup_user_email"><br>
+  <button>
+    Sign up for a new account
+  </button>
+
+</form>
