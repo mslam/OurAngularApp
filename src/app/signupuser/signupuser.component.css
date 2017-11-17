@@ -1,0 +1,15 @@
+.signup_user_password{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.formField {
+  width: 2000px;
+  text-align: center;
+}
+
+.formButton {
+  width: 2000px;
+  text-align: center;
+}

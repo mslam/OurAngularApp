@@ -1,3 +1,30 @@
 <p>
-  signupuser works!
+  Welcome to accounting. Please sign up for a account on our website.
 </p>
+
+<form (ngSubmit)="onSubmit()">
+  <input matInput placeholder="User Name"
+         required
+         name="signup_user_name"><br>
+
+  <input matInput placeholder="E-mail Adress"
+         required
+         name="signup_user_email"><br>
+
+  <input matInput placeholder="Create a new Password"
+         required
+         name="signup_user_password"><br>
+  <input matInput placeholder="Verify your Password"
+         required
+         name="signup_user_password"><br>
+  <input matInput placeholder="Phone Number"
+         required
+         name="signup_user_phone_number"><br>
+  <input matInput placeholder="Date of Birth"
+         required
+         name="signup_user_birth_date"><br>
+  <button>
+    Create My Profile
+  </button>
+
+</form>
