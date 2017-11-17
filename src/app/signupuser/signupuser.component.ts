@@ -37,7 +37,7 @@ export class SignupuserComponent implements OnInit {
       console.log(signupuser);
 
       // set the current company in the context
-      this.contextService.currentSignupuser = this.signupuser;
+      this.contextService.currentSignupuser = signupuser;
 
       this.router.navigate(['/signupuser/' + signupuser.signup_user_id + '/users']);
     });

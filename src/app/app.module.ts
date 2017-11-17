@@ -86,6 +86,7 @@ import { CompanyComponent } from './company/company.component';
 import { HomeComponent } from './home/home.component';
 import {CompanyService} from "./shared/company/company.service";
 import {SignupuserService} from "./shared/signupuser/signupuser.service";
+import {LoginuserService} from "./shared/loginuser/loginuser.service";
 import {ContextService} from "./shared/context/context.service";
 import { UserComponent } from './user/user.component';
 import { LoginuserComponent } from './loginuser/loginuser.component';
@@ -125,6 +126,7 @@ const routing = RouterModule.forRoot(routes, { enableTracing: true });
   providers: [CompanyService,
               ContextService,
               SignupuserService,
+              LoginuserService,
               AlertService],
   bootstrap: [AppComponent]
 })
