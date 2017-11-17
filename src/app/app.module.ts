@@ -75,9 +75,9 @@ import {
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule,
+    MatTooltipModule
   ],
-  declarations: [UserComponent, LoginuserComponent, SignupuserComponent]
+  //declarations: [UserComponent, LoginuserComponent, SignupuserComponent]
 })
 export class MaterialModule {}
 
@@ -97,7 +97,7 @@ const routes: Routes = [
   { path: 'companies/:id/users', component: UserComponent},
   { path: 'loginuser', component: LoginuserComponent},
   { path: 'signupuser', component: SignupuserComponent },
-  { path: 'signupuser/:signup_user_id/users', component: UserComponent},
+ // { path: 'signupuser/:signup_user_id/users', component: UserComponent},
 ];
 
 const routing = RouterModule.forRoot(routes, { enableTracing: true });
@@ -107,7 +107,10 @@ const routing = RouterModule.forRoot(routes, { enableTracing: true });
   declarations: [
     AppComponent,
     CompanyComponent,
-    HomeComponent
+    HomeComponent,
+    UserComponent,
+    LoginuserComponent,
+    SignupuserComponent
   ],
   imports: [
     BrowserModule,
