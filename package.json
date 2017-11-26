@@ -2,6 +2,7 @@
   "name": "our-angular-app",
   "version": "0.0.0",
   "license": "Banana",
+  "main": "server.js",
   "scripts": {
     "ng": "ng",
     "build": "ng build",
