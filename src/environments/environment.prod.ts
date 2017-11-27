@@ -1,8 +1,8 @@
 export const environment = {
-  production: true
-
-  // Todo: add correct URL for production/staging.
-  // token_auth_config: {
-  //   apiBase: 'http:// '
-  // }
+  production: true,
+  // Todo: Look into using environmental variables for Angular4 on Heroku
+  // Todo: Look into conifguring staging and development for Heroku... After new years :P
+  token_auth_config: {
+     apiBase: 'https://journalvoucherapp.herokuapp.com'
+  }
 };
