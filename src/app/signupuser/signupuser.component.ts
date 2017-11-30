@@ -23,9 +23,10 @@ export class SignupuserComponent implements OnInit {
     signup_user_id: 0,
     signup_user_name: "",
     signup_user_email: "",
+    signup_user_password: "",
     signup_user_address: "",
     signup_user_phone_number: "",
-    signup_user_birth_date: new Date(),
+    signup_user_birth_date: ""
   };
   ngOnInit() {
   }

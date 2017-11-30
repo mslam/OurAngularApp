@@ -1,30 +1,45 @@
-<p>
-  Welcome to accounting. Please sign up for a account on our website.
-</p>
+<h1>
+  Sign up to Register for a new account.
+</h1>
 
-<form (ngSubmit)="onSubmit()">
-  <input matInput placeholder="User Name"
-         required
-         name="signup_user_name"><br>
+<form (ngSubmit)="onSubmit()" class="formContainer" #signupuserForm="ngForm">
+  <mat-form-field class="formField">
+    <input matInput placeholder="Create a User Name"
+           required
+           [(ngModel)]="signupuser.signup_user_name" name="signup_user_name">
+  </mat-form-field>
 
-  <input matInput placeholder="E-mail Adress"
-         required
-         name="signup_user_email"><br>
+  <mat-form-field class="formField">
+    <input matInput placeholder="Your Email"
+           required
+           [(ngModel)]="signupuser.signup_user_email" name="signup_user_email">
+  </mat-form-field>
 
-  <input matInput placeholder="Create a new Password"
-         required
-         name="signup_user_password"><br>
-  <input matInput placeholder="Verify your Password"
-         required
-         name="signup_user_password"><br>
-  <input matInput placeholder="Phone Number"
-         required
-         name="signup_user_phone_number"><br>
-  <input matInput placeholder="Date of Birth"
-         required
-         name="signup_user_birth_date"><br>
-  <button>
-    Create My Profile
-  </button>
+  <mat-form-field class="formField">
+    <input matInput placeholder="Create a Strong Password"
+           required
+           [(ngModel)]="signupuser.signup_user_password" name="signup_user_password">
+  </mat-form-field>
 
+  <mat-form-field class="formField">
+    <input matInput placeholder="Enter your birthdate"
+           required
+           [(ngModel)]="signupuser.signup_user_birth_date" name="signup_user_birth_date">
+  </mat-form-field>
+
+  <mat-form-field class="formField">
+    <input matInput placeholder="Your Phone Number"
+           required
+           [(ngModel)]="signupuser.signup_user_phone_number" name="signup_user_phone_number">
+  </mat-form-field>
+  <mat-form-field class="formField">
+    <input matInput placeholder="Your Address"
+           required
+           [(ngModel)]="signupuser.signup_user_address" name="signupuser.signup_user_adress">
+  </mat-form-field>
+
+  <button class="formButton"
+          type="submit" mat-raised-button color="primary"
+          [disabled]="!signupuserForm.form.valid">Sign Up</button>
 </form>
+
