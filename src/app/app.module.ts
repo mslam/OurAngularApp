@@ -98,7 +98,7 @@ const routes: Routes = [
   { path: 'companies/:id/users', component: UserComponent},
   { path: 'loginuser', component: LoginuserComponent},
   { path: 'signupuser', component: SignupuserComponent },
- // { path: 'signupuser/:signup_user_id/users', component: UserComponent},
+  { path: 'signupuser/:signup_user_id/users', component: UserComponent},
 ];
 
 const routing = RouterModule.forRoot(routes, { enableTracing: true });
