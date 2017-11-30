@@ -1,25 +1,28 @@
-<p>
-  Welcome! Since you have previously registered, you can simply Log in Below
-</p>
+<h2>
+  Log in if you have previously registered and you already have an account.
+</h2>
 
-<form (ngSubmit)="onSubmit()">
-  <input matInput placeholder="User Name"
-         required
-         name="login_user_name"><br>
-  <input matInput placeholder="User Name"
-         required
-         name="login_user_name"><br>
+<form (ngSubmit)="onSubmit()" class="formContainer" #loginuserForm="ngForm">
+  <mat-form-field class="formField">
+    <input matInput placeholder="Provide your user name"
+           required
+           [(ngModel)]="loginuser.login_user_name" name="login_user_name">
+  </mat-form-field>
 
-  <input matInput placeholder="E-mail Adress"
-         required
-         name="login_user_email"><br>
+  <mat-form-field class="formField">
+    <input matInput placeholder="Your Email"
+           required
+           [(ngModel)]="loginuser.login_user_email" name="login_user_email">
+  </mat-form-field>
 
-  <input matInput placeholder="Your Password"
-         required
-         name="login_user_password"><br>
-  <button>
-    Login to my account
-  </button>
+  <mat-form-field class="formField">
+    <input matInput placeholder="Provide your Password"
+           required
+           [(ngModel)]="loginuser.login_user_password" name="login_user_password">
+  </mat-form-field>
 
+  <button class="formButton"
+          type="submit" mat-raised-button color="primary"
+          [disabled]="!loginuserForm.form.valid">Log in</button>
 </form>
 
