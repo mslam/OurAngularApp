@@ -1,21 +1,28 @@
 <tree-root [nodes]="nodes" class="tree">
   <ng-template #treeNodeTemplate let-node let-index="index" class="node">
-    <span>{{ node.data.name }}</span>
+    <span [hidden]="node.data.renaming">{{ node.data.name }}</span>
+    <mat-form-field [hidden]="!node.data.renaming">
+      <input matInput [(ngModel)]="node.data.name" name="name" (focusout)="focusOutFunction(node)">
+    </mat-form-field>
     <span mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>view_headline</mat-icon>
     </span>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item (click)="rename(node)">
         <mat-icon>edit</mat-icon>
         <span>Rename</span>
       </button>
       <button mat-menu-item disabled>
         <mat-icon>add_box</mat-icon>
-        <span>Add Node</span>
+        <span>Add Child Node</span>
       </button>
       <button mat-menu-item>
         <mat-icon>add_circle</mat-icon>
         <span>Add Account</span>
+      </button>
+      <button mat-menu-item [disabled]="node.children">
+        <mat-icon>delete_forever</mat-icon>
+        <span>Delete Node</span>
       </button>
     </mat-menu>
   </ng-template>

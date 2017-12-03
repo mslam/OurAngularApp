@@ -15,6 +15,8 @@ export class AccountComponent implements OnInit {
     {
       id: 1,
       name: 'root1',
+      editable: false,
+      renaming: true,
       children: [
         { id: 2, name: 'child1' },
         { id: 3, name: 'child2' }
@@ -36,7 +38,13 @@ export class AccountComponent implements OnInit {
     }
   ];
 
-  onClick(event){
-    console.log(event);
+  focusOutFunction(node)
+  {
+    node.data.renaming = false;
+  }
+
+  rename(node)
+  {
+    node.data.renaming = true;
   }
 }
