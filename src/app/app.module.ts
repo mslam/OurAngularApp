@@ -7,6 +7,7 @@ import {HttpModule} from '@angular/http';
 import {CdkTableModule} from '@angular/cdk/table';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AlertService} from './shared/alert/alert.service';
+import { TreeModule } from 'angular-tree-component';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -77,7 +78,7 @@ import {
     MatToolbarModule,
     MatTooltipModule,
   ],
-  declarations: [UserComponent]
+  // declarations: [UserComponent, AccountComponent]
 })
 export class MaterialModule {}
 
@@ -87,11 +88,13 @@ import { HomeComponent } from './home/home.component';
 import {CompanyService} from "./shared/company/company.service";
 import {ContextService} from "./shared/context/context.service";
 import { UserComponent } from './user/user.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'companies', component: CompanyComponent},
-  { path: 'companies/:id/users', component: UserComponent}
+  { path: 'companies/:id/users', component: UserComponent},
+  { path: 'companies/:id/accounts', component: AccountComponent}
 ];
 
 const routing = RouterModule.forRoot(routes, { enableTracing: true });
@@ -101,7 +104,9 @@ const routing = RouterModule.forRoot(routes, { enableTracing: true });
   declarations: [
     AppComponent,
     CompanyComponent,
-    HomeComponent
+    HomeComponent,
+    UserComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -111,6 +116,7 @@ const routing = RouterModule.forRoot(routes, { enableTracing: true });
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    TreeModule,
     NgbModule.forRoot()
   ],
   providers: [CompanyService,
