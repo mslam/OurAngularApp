@@ -13,7 +13,7 @@
         <mat-icon>edit</mat-icon>
         <span>Rename</span>
       </button>
-      <button mat-menu-item disabled>
+      <button mat-menu-item (click)="addChildNode(node)">
         <mat-icon>add_box</mat-icon>
         <span>Add Child Node</span>
       </button>

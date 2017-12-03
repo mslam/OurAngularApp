@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import { TreeComponent } from 'angular-tree-component';
 
 @Component({
   selector: 'app-account',
@@ -11,6 +12,11 @@ export class AccountComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
+  @ViewChild(TreeComponent)
+  private tree: TreeComponent;
+
   nodes = [
     {
       id: 1,
@@ -54,5 +60,21 @@ export class AccountComponent implements OnInit {
   renaming(node)
   {
     node.data.renaming = true;
+  }
+
+  addChildNode(node){
+    var newNode = {renaming: true};
+    if(node.data.children){
+      node.data.children.push(newNode);
+    }
+    else {
+      node.data.children = [newNode];
+    }
+    this.tree.treeModel.update();
+    this.tree.treeModel.focusDrillDown();
+    console.log(this.tree.treeModel);
+    var currentNode = this.tree.treeModel.focusedNode;
+    console.log(currentNode.children[currentNode.data.children.length - 1]);
+    this.tree.treeModel.setFocusedNode(currentNode.children[currentNode.data.children.length - 1]);
   }
 }
