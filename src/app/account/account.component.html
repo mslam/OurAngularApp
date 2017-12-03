@@ -1,6 +1,22 @@
 <tree-root [nodes]="nodes" class="tree">
   <ng-template #treeNodeTemplate let-node let-index="index" class="node">
     <span>{{ node.data.name }}</span>
-    <i (click)="onClick(node.data)" class="material-icons">view_headline</i>
+    <span mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>view_headline</mat-icon>
+    </span>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>edit</mat-icon>
+        <span>Rename</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>add_box</mat-icon>
+        <span>Add Node</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>add_circle</mat-icon>
+        <span>Add Account</span>
+      </button>
+    </mat-menu>
   </ng-template>
 </tree-root>
