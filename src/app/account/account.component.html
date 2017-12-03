@@ -2,13 +2,14 @@
   <ng-template #treeNodeTemplate let-node let-index="index" class="node">
     <span [hidden]="node.data.renaming">{{ node.data.name }}</span>
     <mat-form-field [hidden]="!node.data.renaming">
-      <input matInput [(ngModel)]="node.data.name" name="name" (focusout)="focusOutFunction(node)">
+      <input matInput [(ngModel)]="node.data.name" name="name" (focusout)="renamingFinished(node)"
+             (keypress)="keyPressed(node, $event)">
     </mat-form-field>
     <span mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>view_headline</mat-icon>
     </span>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="rename(node)">
+      <button mat-menu-item (click)="renaming(node)">
         <mat-icon>edit</mat-icon>
         <span>Rename</span>
       </button>

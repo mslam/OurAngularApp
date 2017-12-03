@@ -15,8 +15,6 @@ export class AccountComponent implements OnInit {
     {
       id: 1,
       name: 'root1',
-      editable: false,
-      renaming: true,
       children: [
         { id: 2, name: 'child1' },
         { id: 3, name: 'child2' }
@@ -38,12 +36,22 @@ export class AccountComponent implements OnInit {
     }
   ];
 
-  focusOutFunction(node)
+  renamingFinished(node)
   {
-    node.data.renaming = false;
+    if(node.data.name) {
+      node.data.renaming = false;
+    }
   }
 
-  rename(node)
+  keyPressed(node, $event)
+  {
+    if($event.key == 'Enter')
+    {
+      this.renamingFinished(node);
+    }
+  }
+
+  renaming(node)
   {
     node.data.renaming = true;
   }
