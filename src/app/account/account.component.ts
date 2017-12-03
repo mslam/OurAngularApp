@@ -22,7 +22,7 @@ export class AccountComponent implements OnInit {
     },
     {
       id: 4,
-      name: 'root2',
+      name: 'rootasdfasdfasdfasdf2',
       children: [
         { id: 5, name: 'child2.1' },
         {
@@ -35,4 +35,8 @@ export class AccountComponent implements OnInit {
       ]
     }
   ];
+
+  onClick(event){
+    console.log(event);
+  }
 }

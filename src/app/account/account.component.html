@@ -2,4 +2,8 @@
   account works!
 </p>
 <tree-root [nodes]="nodes">
+  <ng-template #treeNodeTemplate let-node let-index="index">
+    <span>{{ node.data.name }}</span>
+    <span (click)="onClick(node.data)">=</span>
+  </ng-template>
 </tree-root>
