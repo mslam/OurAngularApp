@@ -1,9 +1,6 @@
-<p>
-  account works!
-</p>
-<tree-root [nodes]="nodes">
-  <ng-template #treeNodeTemplate let-node let-index="index">
+<tree-root [nodes]="nodes" class="tree">
+  <ng-template #treeNodeTemplate let-node let-index="index" class="node">
     <span>{{ node.data.name }}</span>
-    <span (click)="onClick(node.data)">=</span>
+    <i (click)="onClick(node.data)" class="material-icons">view_headline</i>
   </ng-template>
 </tree-root>
