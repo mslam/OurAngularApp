@@ -8,6 +8,7 @@ import {CdkTableModule} from '@angular/cdk/table';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AlertService} from './shared/alert/alert.service';
 import { TreeModule } from 'angular-tree-component';
+import { AngularSplitModule } from 'angular-split';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -118,7 +119,8 @@ const routing = RouterModule.forRoot(routes, { enableTracing: true });
     ReactiveFormsModule,
     MaterialModule,
     TreeModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AngularSplitModule
   ],
   providers: [CompanyService,
               ContextService,

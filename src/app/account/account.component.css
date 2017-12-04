@@ -1,3 +1,18 @@
 .material-icons.mat-icon{
     height: 100%;
 }
+
+.tree{
+    height: 100%;
+    padding: 10px;
+}
+
+.account{
+    height: 100%;
+    width:100%;
+    padding: 10px;
+}
+
+.formField {
+    width: 100%;
+}

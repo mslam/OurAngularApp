@@ -1,30 +1,63 @@
-<tree-root [nodes]="nodes" class="tree">
-  <ng-template #treeNodeTemplate let-node let-index="index" class="node">
-    <span [hidden]="node.data.renaming">{{ node.data.name }}</span>
-    <mat-form-field [hidden]="!node.data.renaming">
-      <input matInput [(ngModel)]="node.data.name" name="name" (focusout)="renamingFinished(node)"
-             (keypress)="keyPressed(node, $event)">
-    </mat-form-field>
-    <span mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon>view_headline</mat-icon>
-    </span>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="renaming(node)" [disabled]="!node.is_editable">
-        <mat-icon>edit</mat-icon>
-        <span>Rename</span>
-      </button>
-      <button mat-menu-item (click)="addChildNode(node)">
-        <mat-icon>add_box</mat-icon>
-        <span>Add Child Node</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>add_circle</mat-icon>
-        <span>Add Account</span>
-      </button>
-      <button mat-menu-item [disabled]="node.children" (click)="removeChildNode(node)">
-        <mat-icon>delete_forever</mat-icon>
-        <span>Remove Node</span>
-      </button>
-    </mat-menu>
-  </ng-template>
-</tree-root>
+<form (ngSubmit)="onSubmit()"  #nodeForm="ngForm" style="height: 100%">
+    <split [direction]="horizontal" gutterHeight="auto">
+        <split-area size="50">
+            <div class="tree">
+                <h2>IFRS tree</h2>
+                <tree-root [nodes]="nodes">
+                    <ng-template #treeNodeTemplate let-node let-index="index" class="node">
+                        <span [hidden]="node.data.renaming">{{ node.data.name }}</span>
+                        <mat-form-field [hidden]="!node.data.renaming">
+                            <input matInput [(ngModel)]="node.data.name" name="name" (focusout)="renamingFinished(node)"
+                                   (keypress)="keyPressed(node, $event)">
+                        </mat-form-field>
+                        <span mat-icon-button [matMenuTriggerFor]="menu">
+                            <mat-icon>view_headline</mat-icon>
+                        </span>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="renaming(node)" [disabled]="!node.is_editable">
+                                <mat-icon>edit</mat-icon>
+                                <span>Rename</span>
+                            </button>
+                            <button mat-menu-item (click)="addChildNode(node)">
+                                <mat-icon>add_box</mat-icon>
+                                <span>Add Child Node</span>
+                            </button>
+                            <button mat-menu-item (click)="addAccount(node)">
+                                <mat-icon>add_circle</mat-icon>
+                                <span>Add Account</span>
+                            </button>
+                            <button mat-menu-item [disabled]="node.children" (click)="removeChildNode(node)">
+                                <mat-icon>delete_forever</mat-icon>
+                                <span>Remove Node</span>
+                            </button>
+                        </mat-menu>
+                    </ng-template>
+                </tree-root>
+            </div>
+        </split-area>
+        <split-area size="50">
+            <div class="account">
+                <h2>Account</h2>
+                <div *ngIf="currentAccount != null">
+                    <mat-form-field class="formField">
+                        <input matInput placeholder="Account Name"
+                               [(ngModel)]="currentAccount.name" name="name">
+                    </mat-form-field>
+                </div>
+                <div *ngIf="currentAccount != null">
+                    <mat-form-field class="formField">
+                        <input type="text" placeholder="Currency"
+                               required
+                               matInput [formControl]="currenciesControl" [matAutocomplete]="auto"
+                               [(ngModel)]="currentAccount.currency" name="currency">
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let currency of filteredOptions | async" [value]="currency">
+                                {{ currency }}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+            </div>
+        </split-area>
+    </split>
+</form>
