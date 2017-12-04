@@ -16,3 +16,12 @@
 .formField {
     width: 100%;
 }
+
+.formButtons {
+    float:right;
+    margin-right: 50px;
+}
+
+.cancelButton{
+    margin-right: 10px;
+}
