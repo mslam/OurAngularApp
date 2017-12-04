@@ -9,7 +9,7 @@
       <mat-icon>view_headline</mat-icon>
     </span>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="renaming(node)">
+      <button mat-menu-item (click)="renaming(node)" [disabled]="!node.is_editable">
         <mat-icon>edit</mat-icon>
         <span>Rename</span>
       </button>
@@ -21,9 +21,9 @@
         <mat-icon>add_circle</mat-icon>
         <span>Add Account</span>
       </button>
-      <button mat-menu-item [disabled]="node.children">
+      <button mat-menu-item [disabled]="node.children" (click)="removeChildNode(node)">
         <mat-icon>delete_forever</mat-icon>
-        <span>Delete Node</span>
+        <span>Remove Node</span>
       </button>
     </mat-menu>
   </ng-template>
