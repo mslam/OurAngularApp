@@ -1,3 +1,5 @@
+import { MessageService } from './_services/index';
+import { ConfigService } from './_services/config.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -77,6 +79,7 @@ import {
     MatToolbarModule,
     MatTooltipModule
   ],
+ // declarations: [LoggeduserComponent],
   //declarations: [UserComponent, LoginuserComponent, SignupuserComponent]
 })
 export class MaterialModule {}
@@ -91,14 +94,16 @@ import {ContextService} from "./shared/context/context.service";
 import { UserComponent } from './user/user.component';
 import { LoginuserComponent } from './loginuser/loginuser.component';
 import { SignupuserComponent } from './signupuser/signupuser.component';
+import { LoggeduserComponent } from './loggeduser/loggeduser.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'companies', component: CompanyComponent},
   { path: 'companies/:id/users', component: UserComponent},
-  { path: 'loginuser', component: LoginuserComponent},
+  { path: 'main', component: LoginuserComponent},
   { path: 'signupuser', component: SignupuserComponent },
- // { path: 'signupuser/:signup_user_id/users', component: UserComponent},
+  { path: 'signupuser/:signup_user_id/users', component: UserComponent},
+  { path: 'loggeduser', component: LoggeduserComponent}
 ];
 
 const routing = RouterModule.forRoot(routes, { enableTracing: true });
@@ -111,7 +116,8 @@ const routing = RouterModule.forRoot(routes, { enableTracing: true });
     HomeComponent,
     UserComponent,
     LoginuserComponent,
-    SignupuserComponent
+    SignupuserComponent,
+    LoggeduserComponent
   ],
   imports: [
     BrowserModule,
@@ -127,6 +133,9 @@ const routing = RouterModule.forRoot(routes, { enableTracing: true });
               ContextService,
               SignupuserService,
               LoginuserService,
+             // LoggeduserService,
+              MessageService,
+              ConfigService,
               AlertService],
   bootstrap: [AppComponent]
 })
