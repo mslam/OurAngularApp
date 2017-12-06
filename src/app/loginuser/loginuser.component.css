@@ -1,0 +1,20 @@
+.formContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.formField {
+  width: 100%;
+}
+
+.formButton {
+  width: fit-content;
+}
+.invalidlogin{
+  color: red;
+}
+.dashboard_text{
+  text-align: center;
+  font-size: larger;
+  color: #0056b3;
+}

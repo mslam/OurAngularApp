@@ -1,0 +1,36 @@
+
+<div *ngIf="show_login_msg">
+  <div *ngIf="login_happy_path" class="dashboard_text">Welcome {{logged_user_name}} ! This is your DashBoard.</div>
+  <div *ngIf="login_sad_path" class="invalidlogin"> Invalid login.Try again.</div>
+</div>
+
+<div *ngIf="show_form" >
+  <p>Log in if you have previously registered and you already have an account.</p>
+<form (ngSubmit)="onSubmit()" class="formContainer" #loginuserForm="ngForm">
+  <mat-form-field class="formField">
+    <input matInput placeholder="Provide your user name"
+           required
+           [(ngModel)]="loginuser.login_user_name" name="login_user_name">
+  </mat-form-field>
+
+  <mat-form-field class="formField">
+    <input matInput placeholder="Your Email"
+           required
+           [(ngModel)]="loginuser.login_user_email" name="login_user_email">
+  </mat-form-field>
+
+  <mat-form-field class="formField">
+    <input matInput placeholder="Provide your Password"
+           required
+           [(ngModel)]="loginuser.login_user_password" name="login_user_password">
+  </mat-form-field>
+
+  <button class="formButton"
+          type="submit" mat-raised-button color="primary"
+          [disabled]="!loginuserForm.form.valid">Log in</button>
+</form>
+
+</div>
+
+
+
