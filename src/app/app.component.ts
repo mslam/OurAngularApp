@@ -8,8 +8,20 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works? ';
+  title = 'Apples work? ';
   constructor(private _tokenService: Angular2TokenService) {
     this._tokenService.init(environment.token_auth_config);
+
+    this._tokenService.signIn({email: 'beep', password: 'beepbeep'}).subscribe(
+      res => {
+        console.log('auth response: ', res);
+        console.log('auth response headers: ', res.headers.toJSON());
+        console.log('auth response body: ', res.json());
+      },
+
+    err => {
+        console.error('auth error:', err);
+      }
+    );
   }
 }
