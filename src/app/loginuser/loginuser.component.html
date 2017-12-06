@@ -33,4 +33,22 @@
 </div>
 
 
+<p></p>
+<section *ngIf="show_dashboard">
+  <ul class="navBar">
+    <li class="navBarli"> <button class="navButton" type="submit" >Create a company</button></li>
+    <li class="navBarli"> <button class="navButton" type="submit" >Edit Profile</button></li>
+    <li class="navBarli"> <button class="navButton" type="submit" >Logout</button></li>
 
+  </ul>
+
+  <table class="table">
+    <tr>
+      <th>Your Company List</th>
+
+    </tr>
+    <tr *ngFor="let company of logged_user_company_list; let i = index">
+      <td>  <button class="companyButton" type="submit" mat-raised-button color="primary">{{company}}</button> </td>
+    </tr>
+  </table>
+</section>
