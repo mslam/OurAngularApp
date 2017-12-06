@@ -100,7 +100,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'companies', component: CompanyComponent},
   { path: 'companies/:id/users', component: UserComponent},
-  { path: 'loginuser', component: LoginuserComponent},
+  { path: 'main', component: LoginuserComponent},
   { path: 'signupuser', component: SignupuserComponent },
   { path: 'signupuser/:signup_user_id/users', component: UserComponent},
   { path: 'loggeduser', component: LoggeduserComponent}
