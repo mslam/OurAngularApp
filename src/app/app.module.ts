@@ -7,6 +7,7 @@ import {Angular2TokenService} from 'angular2-token';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [ Angular2TokenService ],
   bootstrap: [AppComponent]
