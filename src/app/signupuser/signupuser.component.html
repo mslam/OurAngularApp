@@ -1,7 +1,15 @@
 <h2>
-  Sign up to Register for a new account.
 </h2>
+<div *ngIf="show_signup_sad_path" class = "sad_path_css_for_duplicate_user">
+  This user name is already taken. Please provide a different user name.
+</div>
 
+<div *ngIf="show_signup_sad_path_for_different_password" class="sad_path_css_for_different_password">
+  Password not the same.
+</div>
+
+<div *ngIf="show_signup_form">
+  <p> Sign up to Register for a new account.</p>
 <form (ngSubmit)="onSubmit()" class="formContainer" #signupuserForm="ngForm">
   <mat-form-field class="formField">
     <input matInput placeholder="Create a User Name"
@@ -22,9 +30,9 @@
   </mat-form-field>
 
   <mat-form-field class="formField">
-    <input matInput placeholder="Enter your birthdate"
+    <input matInput placeholder="Verify your password"
            required
-           [(ngModel)]="signupuser.signup_user_birth_date" name="signup_user_birth_date">
+           [(ngModel)]="signupuser.signup_user_verify_password" name="signup_user_verify_password">
   </mat-form-field>
 
   <mat-form-field class="formField">
@@ -42,5 +50,8 @@
           type="submit" mat-raised-button color="primary"
           [disabled]="!signupuserForm.form.valid">Sign Up</button>
 </form>
+
+</div>
+
 
 
