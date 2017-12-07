@@ -38,7 +38,7 @@ export class SignupuserComponent implements OnInit {
   }
   onSubmit() {
     this.show_signup_sad_path = false;
-    this.show_signup_form = false;
+    this.show_signup_form = true;
     this.show_signup_sad_path_for_different_password = false;
     this.current_signup_password = this.signupuser.signup_user_password;
     this.current_signup_verify_password = this.signupuser.signup_user_verify_password;
