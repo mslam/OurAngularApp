@@ -47,6 +47,7 @@ export class SignupuserComponent implements OnInit {
       this.show_signup_sad_path_for_different_password = true;
       //this.router.navigate(['/signupuser' ]);
     }*/
+    //this is a test commit
     //else if (this.current_signup_verify_password == this.current_signup_password) {
     this.signupuserService.createSignupuser(this.signupuser).then((signupuser) => {
       console.log('Successfully created');
