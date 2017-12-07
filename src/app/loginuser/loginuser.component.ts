@@ -23,6 +23,7 @@ export class LoginuserComponent implements OnInit {
    login_sad_path=false;
    login_happy_path=false;
     show_dashboard=false;
+    show_logout_msg = false;
 
 
   constructor(
