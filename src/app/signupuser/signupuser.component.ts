@@ -14,6 +14,12 @@ import {ContextService} from '../shared/context/context.service';
   styleUrls: ['./signupuser.component.css']
 })
 export class SignupuserComponent implements OnInit {
+  show_signup_form=true;
+  show_signup_sad_path=false;
+  show_signup_sad_path_for_different_password = false;
+  signup_user_name;
+  current_signup_password;
+  current_signup_verify_password;
   constructor(
     private signupuserService: SignupuserService,
     private router: Router,
@@ -24,24 +30,39 @@ export class SignupuserComponent implements OnInit {
     signup_user_name: "",
     signup_user_email: "",
     signup_user_password: "",
+    signup_user_verify_password: "",
     signup_user_address: "",
     signup_user_phone_number: "",
-    signup_user_birth_date: ""
   };
   ngOnInit() {
   }
-  onSubmit()
-  {
+  onSubmit() {
+    this.show_signup_sad_path=false;
+    this.show_signup_form = false;
+    this.current_signup_password = this.signupuser.signup_user_password;
+    this.current_signup_verify_password = this.signupuser.signup_user_verify_password;
+    if (this.current_signup_password !== this.current_signup_verify_password) {
+      this.show_signup_form = true;
+      this.show_signup_sad_path_for_different_password = true;
+      //this.router.navigate(['/signupuser' ]);
+    }
+    else if (this.current_signup_verify_password == this.current_signup_password) {
+        this.signupuserService.createSignupuser(this.signupuser).then((signupuser) => {
+          console.log('Successfully created');
+          console.log(signupuser);
 
-    this.signupuserService.createSignupuser(this.signupuser).then((signupuser) => {
-      console.log("Successfully created");
-      console.log(signupuser);
-
-      // set the current company in the context
-      this.contextService.currentSignupuser = signupuser;
-
-      this.router.navigate(['/main' ]);
-    });
+          // set the current company in the context
+          this.contextService.currentSignupuser = signupuser;
+          this.signup_user_name = signupuser.signup_user_name;
+          if (this.signup_user_name == 'DuplicateUser') {
+            this.show_signup_form = true;
+            this.show_signup_sad_path = true;
+          }
+          else if (this.show_signup_sad_path_for_different_password) {
+            this.router.navigate(['/main']);
+          }
+        });
+}
   }
 
 }

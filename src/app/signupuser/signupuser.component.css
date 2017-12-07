@@ -10,3 +10,15 @@
 .formButton {
   width: fit-content;
 }
+
+.sad_path_css_for_duplicate_user{
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sad_path_css_for_different_password{
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
