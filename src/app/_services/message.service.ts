@@ -1,15 +1,21 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from "rxjs/Observable";
 
 @Injectable()
-export class MessageService {
-  public subject = new Subject<any>();
 
-  sendMessage(message: string) {
-    console.log('func started');
-    console.log(message);
-    this.subject.next({ any: message });
+export class MessageService {
+
+
+ // subject: Subject<any> = new Subject<any>();
+ // observable: Observable<any> = this.subject.asObservable();
+
+  private subject = new Subject<any>();
+
+  sendMessage(message: any) {
+    this.subject.next( message );
+    console.log('msg sent');
   }
 
   clearMessage() {
@@ -17,8 +23,8 @@ export class MessageService {
   }
 
   getMessage(): Observable<any> {
-    console.log('getfunc started');
     return this.subject.asObservable();
-
   }
+
+  constructor() {}
 }

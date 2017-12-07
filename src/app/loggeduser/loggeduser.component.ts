@@ -1,7 +1,7 @@
 import { Component, OnInit ,OnDestroy} from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { MessageService } from '../_services/index';
-import { ConfigService } from '../_services/config.service';
+//old import { MessageService } from '../_services/index';
+//old import { ConfigService } from '../_services/config.service';
 import {LoginuserService} from '../shared/loginuser/loginuser.service';
 @Component({
   selector: 'app-loggeduser',
@@ -9,7 +9,9 @@ import {LoginuserService} from '../shared/loginuser/loginuser.service';
   styleUrls: ['./loggeduser.component.css'],
  //providers: [ConfigService]
 })
+/* old
 export class LoggeduserComponent implements OnDestroy {
+
   message="no name";
   subscription: Subscription;
   public config;
@@ -25,4 +27,9 @@ export class LoggeduserComponent implements OnDestroy {
     // unsubscribe to ensure no memory leaks
   //  this.subscription.unsubscribe();
   }
+  */
+//new
+export class LoggeduserComponent  {
+  constructor(){}
 }
+

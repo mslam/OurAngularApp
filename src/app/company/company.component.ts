@@ -8,6 +8,8 @@ import {Company} from "../shared/company";
 import {CompanyService} from "../shared/company/company.service";
 import {ContextService} from "../shared/context/context.service";
 
+import { Subscription } from 'rxjs/Subscription'; //new
+import { MessageService } from '../_services/message.service';//new
 
 @Component({
   selector: 'app-company',
@@ -15,11 +17,15 @@ import {ContextService} from "../shared/context/context.service";
   styleUrls: ['./company.component.css']
 })
 export class CompanyComponent implements OnInit {
+  message;//new
+  subscription: Subscription;//new
 
   constructor (
       private companyService: CompanyService,
       private router: Router,
-      private contextService: ContextService) {}
+      private contextService: ContextService,
+      private messageService: MessageService //new
+  ) {}
   currenciesControl: FormControl = new FormControl();
   company : Company = {
     id: 0,
@@ -75,9 +81,12 @@ export class CompanyComponent implements OnInit {
   filteredOptions: Observable<string[]>;
 
   ngOnInit() {
+   this.subscription = this.messageService.getMessage().subscribe(message => { this.message = message; console.log("received")});//new
+
     this.filteredOptions = this.currenciesControl.valueChanges
         .startWith(null)
         .map(val => val ? this.filter(val) : this.currencies.slice());
+
   }
 
   onSubmit()

@@ -1,5 +1,7 @@
-import { MessageService } from './_services/index';
-import { ConfigService } from './_services/config.service';
+//old import { MessageService } from './_services/index';
+//old import { ConfigService } from './_services/config.service';
+import { MessageService } from './_services/message.service'; // new
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -135,7 +137,7 @@ const routing = RouterModule.forRoot(routes, { enableTracing: true });
               LoginuserService,
              // LoggeduserService,
               MessageService,
-              ConfigService,
+              //old ConfigService,
               AlertService],
   bootstrap: [AppComponent]
 })

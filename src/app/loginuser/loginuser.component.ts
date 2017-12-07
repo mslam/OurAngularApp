@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import {ContextService} from '../shared/context/context.service';
 import {LoginuserService} from '../shared/loginuser/loginuser.service';
 import {Loginuser} from '../shared/loginuser';
+import { MessageService } from '../_services/message.service';//new
 
 
 @Component({
@@ -27,7 +28,8 @@ export class LoginuserComponent implements OnInit {
   constructor(
     private loginuserService: LoginuserService,
     private router: Router,
-  ) { }
+    private messageService: MessageService //new
+  ) {}
 
 
   loginuser : Loginuser = {
@@ -62,6 +64,13 @@ export class LoginuserComponent implements OnInit {
    //  this.router.navigate(['/loggeduser']);
     });
   }
+  //new
+  click(){
+    this.messageService.sendMessage({name:this.logged_user_name});
+    this.show_dashboard=false;
+    console.log("msg sent");
+  }
+  //new
 }
 
 

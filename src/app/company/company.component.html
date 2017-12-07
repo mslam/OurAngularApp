@@ -1,5 +1,8 @@
-<h1>
-  Create new company
+<!new>
+<section *ngIf="message">
+  <!new>
+  <h1>
+  Create new company {{message.name}}
 </h1>
 
 <form (ngSubmit)="onSubmit()" class="formContainer" #companyForm="ngForm">
@@ -47,4 +50,4 @@
             type="submit" mat-raised-button color="primary"
             [disabled]="!companyForm.form.valid">Create Company</button>
 </form>
-
+</section>

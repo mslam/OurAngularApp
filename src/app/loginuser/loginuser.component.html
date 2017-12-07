@@ -36,7 +36,9 @@
 <p></p>
 <section *ngIf="show_dashboard">
   <ul class="navBar">
-    <li class="navBarli"> <button class="navButton" type="submit" >Create a company</button></li>
+    <!new>
+    <li class="navBarli"> <button class="navButton" type="submit" (click)="click()">Create a company</button></li>
+    <!new>
     <li class="navBarli"> <button class="navButton" type="submit" >Edit Profile</button></li>
     <li class="navBarli"> <button class="navButton" type="submit" >Logout</button></li>
 
@@ -52,3 +54,10 @@
     </tr>
   </table>
 </section>
+
+
+<!new>
+<section>
+  <app-company></app-company>
+</section>
+<!new>
