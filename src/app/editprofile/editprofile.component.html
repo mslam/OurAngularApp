@@ -1,3 +1,62 @@
-<p>
-  editprofile works!
-</p>
+<!new>
+<section *ngIf="message">
+  <!new>
+
+<h2>
+  Edit for {{message.user_name}}
+</h2>
+<div *ngIf="show_signup_sad_path" class = "sad_path_css_for_duplicate_user">
+  This user name is already taken. Please provide a different user name.
+</div>
+
+<div *ngIf="show_signup_sad_path_for_different_password" class="sad_path_css_for_different_password">
+  Password not the same.
+</div>
+
+<div *ngIf="show_signup_form">
+  <p> Sign up to Register for a new account.</p>
+  <form (ngSubmit)="onSubmit()" class="formContainer" #signupuserForm="ngForm">
+    <mat-form-field class="formField">
+      <input matInput placeholder="Create a User Name"
+             required
+             [(ngModel)]="signupuser.signup_user_name" name="signup_user_name">
+    </mat-form-field>
+
+    <mat-form-field class="formField">
+      <input matInput placeholder="Your Email"
+             required
+             [(ngModel)]="signupuser.signup_user_email" name="signup_user_email">
+    </mat-form-field>
+
+    <mat-form-field class="formField">
+      <input matInput placeholder="Create a Strong Password"
+             required
+             [(ngModel)]="signupuser.signup_user_password" name="signup_user_password">
+    </mat-form-field>
+
+    <mat-form-field class="formField">
+      <input matInput placeholder="Verify your password"
+             required
+             [(ngModel)]="signupuser.signup_user_verify_password" name="signup_user_verify_password">
+    </mat-form-field>
+
+    <mat-form-field class="formField">
+      <input matInput placeholder="Your Phone Number"
+             required
+             [(ngModel)]="signupuser.signup_user_phone_number" name="signup_user_phone_number">
+    </mat-form-field>
+    <mat-form-field class="formField">
+      <input matInput placeholder="Your Address"
+             required
+             [(ngModel)]="signupuser.signup_user_address" name="signupuser.signup_user_adress">
+    </mat-form-field>
+
+    <button class="formButton"
+            type="submit" mat-raised-button color="primary"
+            [disabled]="!signupuserForm.form.valid">Sign Up</button>
+  </form>
+
+</div>
+</section>
+
+
