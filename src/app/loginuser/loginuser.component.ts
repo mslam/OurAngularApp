@@ -24,6 +24,7 @@ export class LoginuserComponent implements OnInit {
    login_sad_path=false;
    login_happy_path=false;
     show_dashboard=false;
+    hide_company=true;
     show_logout_msg = false;
 
 
@@ -71,6 +72,7 @@ export class LoginuserComponent implements OnInit {
   click(){
     this.messageService.sendMessage(this.logged_user);
     this.show_dashboard=false;
+    this.hide_company=true;
     console.log("msg sent");
   }
   //new
