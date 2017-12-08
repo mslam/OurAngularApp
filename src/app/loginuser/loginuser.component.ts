@@ -69,7 +69,7 @@ export class LoginuserComponent implements OnInit {
   }
   //new
   click(){
-    this.messageService.sendMessage({name:this.logged_user_name});
+    this.messageService.sendMessage(this.logged_user);
     this.show_dashboard=false;
     console.log("msg sent");
   }
