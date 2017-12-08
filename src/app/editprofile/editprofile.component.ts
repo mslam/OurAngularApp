@@ -27,6 +27,7 @@ export class EditprofileComponent implements OnInit {
   signup_user_name;
   current_signup_password;
   current_signup_verify_password;
+  show_edit_profile_happy_path=false;
   editpassword=true;
   constructor(
     private editprofileService: EditprofileService,
@@ -79,8 +80,10 @@ export class EditprofileComponent implements OnInit {
           this.show_signup_sad_path_for_different_password = true;
         }
       }
-      else if (this.show_signup_sad_path_for_different_password== false) {
+      else {if (this.show_signup_sad_path_for_different_password== false) {
         this.router.navigate(['/main']);
+      }
+      this.show_edit_profile_happy_path=true;
       }
     });
 //}

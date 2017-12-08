@@ -9,7 +9,9 @@
   There was an Error while Updating your information. Please try again.
 </div>
 
-
+  <div *ngIf="show_edit_profile_happy_path" class = "sad_path_css_for_duplicate_user">
+    Succesfully Edited profile.
+  </div>
 
 <div *ngIf="show_signup_form">
   <form (ngSubmit)="onSubmit()" class="formContainer" #signupuserForm="ngForm">

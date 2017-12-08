@@ -30,6 +30,7 @@ export class LoginuserComponent implements OnInit {
     show_loggedin=true;
     hide_login_header=false;
 
+
   constructor(
     private loginuserService: LoginuserService,
     private router: Router,
@@ -63,7 +64,8 @@ export class LoginuserComponent implements OnInit {
     this.loginuserService.createLoginuser(this.loginuser).then((loginuser) => {
       this.received_data=loginuser;
       this.logged_user=this.received_data.login_user;
-      this.logged_user_name=this.logged_user.user_name; // error dicche
+      console.log(loginuser);
+      this.logged_user_name=this.logged_user.user_name; // error fixed
       console.log("Successfully created");
       console.log(this.logged_user_name);
 
@@ -92,6 +94,7 @@ export class LoginuserComponent implements OnInit {
     this.show_companies=false;
     this.no_company=false;
     console.log("msg sent");
+
   }
   clickCompany(){
     this.send_data.Component="Company";
