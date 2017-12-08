@@ -50,7 +50,7 @@ export class LoginuserComponent implements OnInit {
     this.loginuserService.createLoginuser(this.loginuser).then((loginuser) => {
       this.received_data=loginuser;
       this.logged_user=this.received_data.login_user;
-      this.logged_user_name=this.logged_user.user_name;
+      this.logged_user_name=this.logged_user.user_name; // error dicche
       console.log("Successfully created");
       console.log(this.logged_user_name);
 
