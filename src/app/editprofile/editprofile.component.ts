@@ -53,6 +53,8 @@ export class EditprofileComponent implements OnInit {
     this.show_signup_sad_path_for_different_password = false;
     this.current_signup_password = this.signupuser.signup_user_password;
     this.current_signup_verify_password = this.signupuser.signup_user_verify_password;
+    this.signupuser.signup_user_name=this.received_data.data.user_name;
+    this.signupuser.signup_user_email=this.received_data.data.email;
     /*if (this.current_signup_password !== this.current_signup_verify_password) {
       this.show_signup_form = true;
       this.show_signup_sad_path_for_different_password = true;
