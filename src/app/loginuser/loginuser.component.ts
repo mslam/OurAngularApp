@@ -24,9 +24,11 @@ export class LoginuserComponent implements OnInit {
    login_sad_path=false;
    login_happy_path=false;
     show_dashboard=false;
-    show_logout_msg = false;
     show_companies=false;
     no_company=false;
+    show_logout=false;
+    show_loggedin=true;
+    hide_login_header=false;
 
   constructor(
     private loginuserService: LoginuserService,
@@ -93,11 +95,33 @@ export class LoginuserComponent implements OnInit {
     this.send_data.Component="";
     this.send_data.data="";
     this.messageService.sendMessage(this.send_data);
+    this.login_happy_path=true;
     if(this.logged_user_company_list==null){this.no_company=true;}
     else{this.show_companies=true;}
   }
   clickManageCompanies(){
     // for manage companies
+  }
+  clickLogout(){
+    //log out
+
+    //clear other components
+    this.send_data.Component="";
+    this.send_data.data="";
+    this.messageService.sendMessage(this.send_data);
+    // show login page
+    this.show_form=true;
+    //remove other components
+    this.show_loggedin=false;
+    //show logout msg
+    this.show_logout=true;
+    // hide login msg
+    this.hide_login_header=true;
+    // empty the login form
+    this.loginuser.login_user_name="";
+    this.loginuser.login_user_email="";
+    this.loginuser.login_user_password="";
+
   }
   //new
 }

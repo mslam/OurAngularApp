@@ -1,11 +1,13 @@
 
-<div *ngIf="show_login_msg">
-  <div *ngIf="login_happy_path" class="dashboard_text">Welcome {{logged_user_name}} ! This is your DashBoard.</div>
+
+  <div *ngIf="login_happy_path && !show_logout" class="dashboard_text">Welcome {{logged_user_name}} ! This is your DashBoard.</div>
   <div *ngIf="login_sad_path" class="invalidlogin"> Invalid login.Try again.</div>
-</div>
+  <div *ngIf="show_logout" class="invalidlogin"> You are logged out. Please Log in again.</div>
+
 
 <div *ngIf="show_form" >
-  <p>Log in if you have previously registered and you already have an account.</p>
+  <p *ngIf="!hide_login_header">Log in if you have previously registered and you already have an account.</p>
+  <p *ngIf="hide_login_header"> </p>
 <form (ngSubmit)="onSubmit()" class="formContainer" #loginuserForm="ngForm">
   <mat-form-field class="formField">
     <input matInput placeholder="Provide your user name"
@@ -33,19 +35,19 @@
 </div>
 
 
-<p></p>
+<section *ngIf="show_loggedin">
 <section *ngIf="show_dashboard">
   <ul class="navBar">
     <!new>
     <li class="navBarli"> <button class="navButton" type="submit" (click)="clickCompany()">Create a company</button></li>
     <!new>
     <li class="navBarli"> <button class="navButton" type="submit" (click)="click()" >Edit Profile</button></li>
-    <li class="navBarli"> <button class="navButton" type="submit" >Logout</button></li>
+    <li class="navBarli"> <button class="navButton" type="submit" (click)="clickLogout()">Logout</button></li>
     <li class="navBarli"> <button class="navButton" type="submit" (click)="clickHome()">Home</button></li>
     <li class="navBarli"> <button class="navButton" type="submit" (click)="clickManageCompanies()">Manage Companies</button></li>
 
   </ul>
-<section>
+</section>
   <section *ngIf="show_companies">
   <table class="table">
     <tr>
@@ -69,3 +71,4 @@
   <app-editprofile></app-editprofile>
 </section>
 <!new>
+</section>
