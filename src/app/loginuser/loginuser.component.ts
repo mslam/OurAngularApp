@@ -14,7 +14,8 @@ import { MessageService } from '../_services/message.service';//new
   styleUrls: ['./loginuser.component.css'],
 })
 export class LoginuserComponent implements OnInit {
-   logged_user;
+  received_data;
+  logged_user;
   logged_user_name="no name";
   logged_user_company_list;
 
@@ -46,17 +47,18 @@ export class LoginuserComponent implements OnInit {
     this.show_form = false;
     this.show_login_msg=true;
     this.loginuserService.createLoginuser(this.loginuser).then((loginuser) => {
-      this.logged_user=loginuser;
-      this.logged_user_name=this.logged_user.login_user_name;
+      this.received_data=loginuser;
+      this.logged_user=this.received_data.login_user;
+      this.logged_user_name=this.logged_user.user_name;
       console.log("Successfully created");
-      console.log(this.logged_user.login_user_name);
+      console.log(this.logged_user_name);
 
 
       if(this.logged_user_name != "InvalidUser" ){
         this.login_happy_path=true;
         this.login_sad_path=false;
         this.show_dashboard=true;
-        this.logged_user_company_list=this.logged_user.company_list;
+        this.logged_user_company_list=this.received_data.company_list;
         console.log(this.logged_user_company_list);
       }
       else {this.login_sad_path=true; this.show_form=true;}

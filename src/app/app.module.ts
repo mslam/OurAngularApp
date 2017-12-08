@@ -81,6 +81,7 @@ import {
     MatToolbarModule,
     MatTooltipModule
   ],
+ // declarations: [EditprofileComponent],
  // declarations: [LoggeduserComponent],
   //declarations: [UserComponent, LoginuserComponent, SignupuserComponent]
 })
@@ -97,6 +98,7 @@ import { UserComponent } from './user/user.component';
 import { LoginuserComponent } from './loginuser/loginuser.component';
 import { SignupuserComponent } from './signupuser/signupuser.component';
 import { LoggeduserComponent } from './loggeduser/loggeduser.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -119,7 +121,8 @@ const routing = RouterModule.forRoot(routes, { enableTracing: true });
     UserComponent,
     LoginuserComponent,
     SignupuserComponent,
-    LoggeduserComponent
+    LoggeduserComponent,
+    EditprofileComponent
   ],
   imports: [
     BrowserModule,
