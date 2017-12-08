@@ -5,10 +5,11 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 import {Signupuser} from '../shared/signupuser';
-import {SignupuserService} from '../shared/signupuser/signupuser.service';
+///import {SignupuserService} from '../shared/signupuser/signupuser.service';
 import {ContextService} from '../shared/context/context.service';
 import { Subscription } from 'rxjs/Subscription'; //new
 import { MessageService } from '../_services/message.service';//new
+import {EditprofileService} from "../shared/editprofile/editprofile.service";
 
 @Component({
   selector: 'app-editprofile',
@@ -28,7 +29,7 @@ export class EditprofileComponent implements OnInit {
   current_signup_verify_password;
   editpassword=true;
   constructor(
-    private signupuserService: SignupuserService,
+    private editprofileService: EditprofileService,
     private router: Router,
     private contextService: ContextService,
     private messageService: MessageService //new
@@ -59,15 +60,15 @@ export class EditprofileComponent implements OnInit {
     }*/
     //this is a test commit 3
     //else if (this.current_signup_verify_password == this.current_signup_password) {
-    this.signupuserService.createSignupuser(this.signupuser).then((signupuser) => {
-      console.log('Successfully created');
+    this.editprofileService.createEditprofile(this.signupuser).then((signupuser) => {
+      console.log('Successfully edited');
       console.log(signupuser);
 
       // set the current company in the context
       this.contextService.currentSignupuser = signupuser;
-      this.signup_user_name = signupuser.signup_user_name;
-      if (this.signup_user_name == 'DuplicateUser' || this.current_signup_password !== this.current_signup_verify_password) {
-        if (this.signup_user_name == 'DuplicateUser') {
+      this.signup_user_name = signupuser.signup_user_name;// ruby name has to be signup_user_name
+      if (this.signup_user_name == 'Provided user name does not exist' || this.current_signup_password !== this.current_signup_verify_password) {
+        if (this.signup_user_name == 'Provided user name does not exist') {
           this.show_signup_form = true;
           this.show_signup_sad_path = true;
         }
