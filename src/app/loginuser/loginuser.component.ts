@@ -89,6 +89,13 @@ export class LoginuserComponent implements OnInit {
     this.show_companies=false;
     this.no_company=false;
   }
+  clickHome(){
+    this.send_data.Component="";
+    this.send_data.data="";
+    this.messageService.sendMessage(this.send_data);
+    if(this.logged_user_company_list==null){this.no_company=true;}
+    else{this.show_companies=true;}
+  }
   //new
 }
 
