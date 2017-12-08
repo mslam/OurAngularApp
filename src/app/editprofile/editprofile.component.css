@@ -9,6 +9,8 @@
 
 .formButton {
   width: fit-content;
+  margin: 0.5cm 0.5cm;
+  padding: .2cm .2cm;
 }
 
 .sad_path_css_for_duplicate_user{

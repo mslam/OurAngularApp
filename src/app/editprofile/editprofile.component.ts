@@ -26,6 +26,7 @@ export class EditprofileComponent implements OnInit {
   signup_user_name;
   current_signup_password;
   current_signup_verify_password;
+  editpassword=true;
   constructor(
     private signupuserService: SignupuserService,
     private router: Router,

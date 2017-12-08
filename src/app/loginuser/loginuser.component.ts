@@ -96,6 +96,9 @@ export class LoginuserComponent implements OnInit {
     if(this.logged_user_company_list==null){this.no_company=true;}
     else{this.show_companies=true;}
   }
+  clickManageCompanies(){
+    // for manage companies
+  }
   //new
 }
 
