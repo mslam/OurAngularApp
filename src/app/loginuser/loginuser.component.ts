@@ -44,6 +44,17 @@ export class LoginuserComponent implements OnInit {
     login_user_password: ""
   };
   ngOnInit() {
+/*  for login auth
+    if(){
+      this.login_happy_path=true;
+      this.show_logout=false;
+      this.login_sad_path=false;
+      this.show_form=false;
+      this.show_loggedin=true;
+      this.show_dashboard=true;
+
+    }
+*/
   }
   onSubmit()
   {
