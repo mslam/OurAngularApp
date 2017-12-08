@@ -43,7 +43,8 @@
     <li class="navBarli"> <button class="navButton" type="submit" >Logout</button></li>
 
   </ul>
-
+<section>
+  <section *ngIf="show_companies">
   <table class="table">
     <tr>
       <th>Your Company List</th>
@@ -54,6 +55,7 @@
     </tr>
   </table>
 </section>
+  <section *ngIf="no_company"> You don't have any company in your profile yet. </section>
 
 
 <!new>

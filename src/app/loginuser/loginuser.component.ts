@@ -24,10 +24,9 @@ export class LoginuserComponent implements OnInit {
    login_sad_path=false;
    login_happy_path=false;
     show_dashboard=false;
-    hide_company=false;
-    hide_
     show_logout_msg = false;
-
+    show_companies=false;
+    no_company=false;
 
   constructor(
     private loginuserService: LoginuserService,
@@ -61,6 +60,8 @@ export class LoginuserComponent implements OnInit {
         this.login_sad_path=false;
         this.show_dashboard=true;
         this.logged_user_company_list=this.received_data.company_list;
+        if(this.logged_user_company_list==null){this.no_company=true;}
+        else{this.show_companies=true;}
         console.log(this.logged_user_company_list);
       }
       else {this.login_sad_path=true; this.show_form=true;}
@@ -74,19 +75,19 @@ export class LoginuserComponent implements OnInit {
     this.send_data.Component="EditProfile";
     this.send_data.data=this.logged_user;
     this.messageService.sendMessage(this.send_data);
-    this.show_dashboard=false;
-    this.hide_company=true;
     this.login_happy_path=false;
+    this.show_companies=false;
+    this.no_company=false;
     console.log("msg sent");
   }
   clickCompany(){
     this.send_data.Component="Company";
     this.send_data.data=this.logged_user;
     this.messageService.sendMessage(this.send_data);
-    this.show_dashboard=false;
-    this.hide_company=false;
     this.login_happy_path=false;
     console.log("msg sent");
+    this.show_companies=false;
+    this.no_company=false;
   }
   //new
 }
