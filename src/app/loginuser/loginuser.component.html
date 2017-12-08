@@ -36,7 +36,7 @@
 
 
 <section *ngIf="show_loggedin">
-<section *ngIf="show_dashboard">
+<section *ngIf="show_dashboard" class="navigationButtons">
   <ul class="navBar">
     <!new>
     <li class="navBarli"> <button class="navButton" type="submit" (click)="clickCompany()">Create a company</button></li>
@@ -45,6 +45,7 @@
     <li class="navBarli"> <button class="navButton" type="submit" (click)="clickLogout()">Logout</button></li>
     <li class="navBarli"> <button class="navButton" type="submit" (click)="clickHome()">Home</button></li>
     <li class="navBarli"> <button class="navButton" type="submit" (click)="clickManageCompanies()">Manage Companies</button></li>
+    <li class="navBarli"> <button class="navButton" type="submit" (click)="clickFaq()">F.A.Q.</button></li>
 
   </ul>
 </section>
@@ -70,5 +71,8 @@
 <section>
   <app-editprofile></app-editprofile>
 </section>
+  <section>
+    <app-faq></app-faq>
+  </section>
 <!new>
 </section>

@@ -134,6 +134,16 @@ export class LoginuserComponent implements OnInit {
     this.loginuser.login_user_password="";
 
   }
+  clickFaq(){
+    this.send_data.Component="Faq";
+    this.send_data.data=this.logged_user;
+    this.messageService.sendMessage(this.send_data);
+    this.login_happy_path=false;
+    console.log("msg sent");
+    this.show_companies=false;
+    this.no_company=false;
+    this.show_dashboard=true;
+  }
   //new
 }
 

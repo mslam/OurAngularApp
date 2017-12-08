@@ -61,3 +61,8 @@
   color: white;
 }
 
+.navigationButtons{
+  width: 98%;
+  margin-right:auto;
+  margin-left:auto;
+}
