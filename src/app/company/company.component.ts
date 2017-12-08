@@ -19,6 +19,8 @@ import { MessageService } from '../_services/message.service';//new
 export class CompanyComponent implements OnInit {
   message;//new
   subscription: Subscription;//new
+  received_data={Component:null,data:null};
+  ComponentName="Company";
 
   constructor (
       private companyService: CompanyService,
@@ -81,7 +83,7 @@ export class CompanyComponent implements OnInit {
   filteredOptions: Observable<string[]>;
 
   ngOnInit() {
-   this.subscription = this.messageService.getMessage().subscribe(message => { this.message = message; console.log("received")});//new
+   this.subscription = this.messageService.getMessage().subscribe(message => { this.received_data = message; console.log("received")});//new
 
     this.filteredOptions = this.currenciesControl.valueChanges
         .startWith(null)

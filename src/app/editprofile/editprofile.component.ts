@@ -16,9 +16,10 @@ import { MessageService } from '../_services/message.service';//new
   styleUrls: ['./editprofile.component.css']
 })
 export class EditprofileComponent implements OnInit {
-  message;//new
+  //message={user_name: null};//new
   subscription: Subscription;//new
-
+  received_data={Component:null,data:null}; // data received here from other components
+  ComponentName="EditProfile"; //id of the component
   show_signup_form= true;
   show_signup_sad_path= false;
   show_signup_sad_path_for_different_password = false;
@@ -41,7 +42,7 @@ export class EditprofileComponent implements OnInit {
     signup_user_phone_number: '',
   };
   ngOnInit() {
-    this.subscription = this.messageService.getMessage().subscribe(message => { this.message = message; console.log("received")});//new
+    this.subscription = this.messageService.getMessage().subscribe(message => { this.received_data = message; console.log("received")});//new
 
   }
   onSubmit() {

@@ -18,13 +18,14 @@ export class LoginuserComponent implements OnInit {
   logged_user;
   logged_user_name="no name";
   logged_user_company_list;
-
+  send_data={Component: "", data: ""};
    show_form=true;
    show_login_msg=false;
    login_sad_path=false;
    login_happy_path=false;
     show_dashboard=false;
-    hide_company=true;
+    hide_company=false;
+    hide_
     show_logout_msg = false;
 
 
@@ -70,9 +71,21 @@ export class LoginuserComponent implements OnInit {
   }
   //new
   click(){
-    this.messageService.sendMessage(this.logged_user);
+    this.send_data.Component="EditProfile";
+    this.send_data.data=this.logged_user;
+    this.messageService.sendMessage(this.send_data);
     this.show_dashboard=false;
     this.hide_company=true;
+    this.login_happy_path=false;
+    console.log("msg sent");
+  }
+  clickCompany(){
+    this.send_data.Component="Company";
+    this.send_data.data=this.logged_user;
+    this.messageService.sendMessage(this.send_data);
+    this.show_dashboard=false;
+    this.hide_company=false;
+    this.login_happy_path=false;
     console.log("msg sent");
   }
   //new

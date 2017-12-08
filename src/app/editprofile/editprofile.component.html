@@ -1,9 +1,9 @@
 <!new>
-<section *ngIf="message">
+<section *ngIf="received_data.Component==ComponentName">
   <!new>
 
 <p class="editHeading">
-  Edit Profile as: {{message.user_name}}
+  Edit Profile as: {{received_data.data.user_name}}
 </p>
 <div *ngIf="show_signup_sad_path" class = "sad_path_css_for_duplicate_user">
   This user name is already taken. Please provide a different user name.
@@ -17,15 +17,15 @@
   <form (ngSubmit)="onSubmit()" class="formContainer" #signupuserForm="ngForm">
   <section class="editblocksDisabled">
     Name :<mat-form-field class="formField">
-       <input matInput placeholder={{message.user_name}}
+       <input matInput placeholder={{received_data.data.user_name}}
 
-             [(ngModel)]="signupuser.signup_user_name" name="signup_user_name" value={{message.user_name}} disabled>
+             [(ngModel)]="signupuser.signup_user_name" name="signup_user_name" value={{received_data.data.user_name}} disabled>
   </mat-form-field></section>
     <section class="editblocksDisabled">
     Email :<mat-form-field class="formField">
-      <input matInput placeholder={{message.email}}
+      <input matInput placeholder={{received_data.data.email}}
 
-             [(ngModel)]="signupuser.signup_user_email" name="signup_user_email" value={{message.email}} disabled>
+             [(ngModel)]="signupuser.signup_user_email" name="signup_user_email" value={{received_data.data.email}} disabled>
     </mat-form-field>
   </section>
     <section class="editblocks">
@@ -44,14 +44,14 @@
     </section>
     <section class="editblocks">
     Edit Phone :<mat-form-field class="formField">
-      <input matInput placeholder={{message.phone}}
+      <input matInput placeholder={{received_data.data.phone}}
 
              [(ngModel)]="signupuser.signup_user_phone_number" name="signup_user_phone_number">
     </mat-form-field>
     </section>
     <section class="editblocks">
     Edit Address :<mat-form-field class="formField">
-      <input matInput placeholder={{message.address}}
+      <input matInput placeholder={{received_data.data.address}}
 
              [(ngModel)]="signupuser.signup_user_address" name="signupuser.signup_user_adress">
     </mat-form-field>

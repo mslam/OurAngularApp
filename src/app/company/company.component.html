@@ -1,8 +1,8 @@
 <!new>
-<section *ngIf="message">
+<section *ngIf="received_data.Component==ComponentName">
   <!new>
   <h1>
-  Create new company {{message.user_name}}
+  Create new company {{received_data.data.user_name}}
 </h1>
 
 <form (ngSubmit)="onSubmit()" class="formContainer" #companyForm="ngForm">
