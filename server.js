@@ -25,9 +25,9 @@ app.set('port', PORT);
 app.use(express.static(path.join(__dirname, 'dist')));
 
 //redirect all requests to index
-app.get('*', function(req,res){
-  res.sendfile(path.join(__dirname, '/dist/index.html'))
-});
+//app.get('*', function(req,res){
+//  res.sendfile(path.join(__dirname, '/dist/index.html'))
+//});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
