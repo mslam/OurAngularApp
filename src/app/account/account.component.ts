@@ -19,32 +19,12 @@ export class AccountComponent implements OnInit {
               private route: ActivatedRoute) {
   }
 
-  currentAccount = null;
 
-  nodes = [
-    {
-      id: 1,
-      name: 'root1',
-      children: [
-        {id: 2, name: 'child1'},
-        {id: 3, name: 'child2'}
-      ]
-    },
-    {
-      id: 4,
-      name: 'root2',
-      children: [
-        {id: 5, name: 'child2.1'},
-        {
-          id: 6,
-          name: 'child2.2',
-          children: [
-            {id: 7, name: 'subsub'}
-          ]
-        }
-      ]
-    }
-  ];
+  mode = "Reading";
+  setEditingMode()
+  {
+    this.mode = "Editing";
+  }
 
   ngOnInit() {
     var companyId = this.route.snapshot.paramMap.get('company_id');
@@ -79,6 +59,7 @@ export class AccountComponent implements OnInit {
   }
 
   addChildNode(node) {
+    this.setEditingMode();
     var newNode = {renaming: true, name:"New node"};
     if (node.data.children) {
       node.data.children.push(newNode);
@@ -95,6 +76,7 @@ export class AccountComponent implements OnInit {
   }
 
   removeChildNode(node) {
+    setEditingMode();
     console.log(node);
     if (!node.hasChidlren && node.parent) {
       node.parent.data.children.splice(node.index,1);
@@ -103,6 +85,7 @@ export class AccountComponent implements OnInit {
   }
 
   addAccount(node) {
+    setEditingMode();
     this.currentAccount = {
       id: 0,
       company_id: node.company_id,

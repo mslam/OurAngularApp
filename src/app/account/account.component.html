@@ -60,7 +60,7 @@
             </div>
         </split-area>
     </split>
-    <div class="formButtons">
+    <div class="formButtons" [hidden]="mode!='Editing'" >
         <button mat-raised-button color="primary" class="cancelButton">
             <mat-icon>cancel</mat-icon> Cancel
         </button>
