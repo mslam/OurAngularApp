@@ -3,6 +3,7 @@ import {Company} from "../company";
 import {Http, Headers} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 import {AlertService} from "../alert/alert.service";
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class CompanyService {
