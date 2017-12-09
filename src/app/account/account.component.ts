@@ -19,17 +19,26 @@ export class AccountComponent implements OnInit {
               private route: ActivatedRoute) {
   }
 
-
   mode = "Reading";
   setEditingMode()
   {
     this.mode = "Editing";
   }
 
+  setReadingMode()
+  {
+    this.mode = "Reading";
+  }
+
+  originNodes = [];
   ngOnInit() {
     var companyId = this.route.snapshot.paramMap.get('company_id');
     this.accountService.getNodes(Number(companyId)).then((nodes) => {
       this.nodes = nodes;
+      // Merge object2 into object1
+      $.extend(true, this.originNodes, nodes);
+      // this.originNodes = nodes.map(x => Object.assign({}, x));
+      console.log(this.originNodes);
     });
 
     this.filteredOptions = this.currenciesControl.valueChanges
@@ -76,7 +85,7 @@ export class AccountComponent implements OnInit {
   }
 
   removeChildNode(node) {
-    setEditingMode();
+    this.setEditingMode();
     console.log(node);
     if (!node.hasChidlren && node.parent) {
       node.parent.data.children.splice(node.index,1);
@@ -85,7 +94,7 @@ export class AccountComponent implements OnInit {
   }
 
   addAccount(node) {
-    setEditingMode();
+    this.setEditingMode();
     this.currentAccount = {
       id: 0,
       company_id: node.company_id,
@@ -97,6 +106,10 @@ export class AccountComponent implements OnInit {
     };
   }
 
+  cancel(){
+    this.nodes =  this.originNodes;
+    this.setReadingMode();
+  }
   currenciesControl: FormControl = new FormControl();
   filteredOptions: Observable<string[]>;
   currencies = [

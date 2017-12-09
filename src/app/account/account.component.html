@@ -61,7 +61,8 @@
         </split-area>
     </split>
     <div class="formButtons" [hidden]="mode!='Editing'" >
-        <button mat-raised-button color="primary" class="cancelButton">
+        <button mat-raised-button color="primary" class="cancelButton"
+                (click)="cancel()">
             <mat-icon>cancel</mat-icon> Cancel
         </button>
         <button type="submit" mat-raised-button color="primary"
