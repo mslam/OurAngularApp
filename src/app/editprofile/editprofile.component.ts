@@ -46,7 +46,7 @@ export class EditprofileComponent implements OnInit {
   };
   ngOnInit() {
     this.subscription = this.messageService.getMessage().subscribe(message => { this.received_data = message; console.log("received")});//new
-
+    this.show_edit_profile_happy_path=false;// added
   }
   onSubmit() {
     this.show_signup_sad_path = false;
@@ -78,12 +78,22 @@ export class EditprofileComponent implements OnInit {
         else if(this.current_signup_password !== this.current_signup_verify_password){
           this.show_signup_form = true;
           this.show_signup_sad_path_for_different_password = true;
+
+          setTimeout(()=>{
+            this.show_signup_sad_path_for_different_password=false;
+          },3000);
+
         }
       }
       else {if (this.show_signup_sad_path_for_different_password== false) {
         this.router.navigate(['/main']);
       }
       this.show_edit_profile_happy_path=true;
+      // show succes for sometime
+        setTimeout(()=>{
+          this.show_edit_profile_happy_path=false;
+        },2000);
+
       }
     });
 //}
