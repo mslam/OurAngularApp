@@ -3,14 +3,14 @@ import {Company} from "../company";
 import {Http, Headers} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 import {AlertService} from "../alert/alert.service";
-import { environment } from '../environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class CompanyService {
 
   constructor(private http: Http,
               public alertService: AlertService) { }
-  private url = 'http://localhost:3000/companies';  // URL to web api
+  private url = environment.apiBase + '/companies';  // URL to web api
   private headers = new Headers({'Content-Type': 'application/json'});
 
   createCompany(company : Company): Promise<Company> {

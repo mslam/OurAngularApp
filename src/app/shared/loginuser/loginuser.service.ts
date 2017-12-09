@@ -3,13 +3,14 @@ import {Loginuser} from "../loginuser";
 import {Http, Headers} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 import {AlertService} from "../alert/alert.service";
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class LoginuserService {
 
   constructor(private http: Http,
               public alertService: AlertService) { }
-  private url = 'http://localhost:3000/loginuser';  // URL to web api
+  private url = environment.apiBase + '/loginuser';  // URL to web api
   private headers = new Headers({'Content-Type': 'application/json'});
 
   createLoginuser(loginuser : Loginuser): Promise<Loginuser> {

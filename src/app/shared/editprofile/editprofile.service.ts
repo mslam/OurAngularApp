@@ -3,13 +3,14 @@ import {Signupuser} from "../signupuser";
 import {Http, Headers} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 import {AlertService} from "../alert/alert.service";
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class EditprofileService {
 
   constructor(private http: Http,
               public alertService: AlertService) { }
-  private url = 'http://localhost:3000/edituser';  // URL to web api
+  private url = environment.apiBase + '/edituser';  // URL to web api
   private headers = new Headers({'Content-Type': 'application/json'});
 
   createEditprofile(signupuser : Signupuser): Promise<Signupuser> {
